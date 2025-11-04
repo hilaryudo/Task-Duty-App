@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300..700&display=swap");
+
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+
+body {
+    max-width: 1600px;
+    margin: 0 auto;
+  font-family: "Signika Negative", sans-serif;
+}
+
+.wrapper {
+  @apply w-full mx-auto py-10 px-4 md:py-5 md:px-14 lg:px-40;
+}
