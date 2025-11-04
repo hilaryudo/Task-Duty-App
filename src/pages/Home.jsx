@@ -1,5 +1,5 @@
 import React from 'react'
-import img1 from '../assets/img1.png';
+import image1 from '../assets/image1.png';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
@@ -15,7 +15,7 @@ const Home = () => {
         </div>
 
         <div className='col-span-2 order-1 lg:order-2 pt-8'>
-          <img src={img1} alt="first imgage" className='w-full'/>
+          <img src={image1} alt="first imgage" className='w-full'/>
         </div>
         </main>
     </div>
