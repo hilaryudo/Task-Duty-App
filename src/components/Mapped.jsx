@@ -10,7 +10,7 @@ const Mapped = ({ _id, taskTitle, description, tag }) => {
                 <h1 className={`${tag === "Urgent" ? "text-[#F38383]" : "text-[#73C3A6]"} md:text-[24px] text-[20px] font-normal md:font-[300px] pt-6 px-2`}>{tag}</h1>
                 <div className='flex items-center gap-4 md:gap-8 py-4 px-3 text-[14px] md:text-[24px] font-normal md:font-medium'>
                     <button className='bg-[#974FD0] cursor-pointer w-16 md:w-[126px] h-10 md:h-[50px] rounded-lg flex justify-center items-center'>
-                        <Link className='flex items-center gap-2.5 px-2'>
+                        <Link to={`/task-id/${_id}`} className='flex items-center gap-2.5 px-2'>
                             <img src={edit} alt="Edit logo" className='w-4 md:w-6 h-6' />
                             <span className='text-[#FAF9FB] hidden md:block'>Edit</span>
                         </Link>

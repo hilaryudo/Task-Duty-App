@@ -6,7 +6,7 @@ const ScrollToTop = () => {
     }
   return (
     <div>
-        <p onClick={onTop} className='cursor-pointer font-normal text-[#974FD0] text-[24px] underline text-center py-7'>Back To Top</p>
+        <p onClick={onTop} className='cursor-pointer font-normal text-[#974FD0] text-[24px] underline text-center py-4'>Back To Top</p>
     </div>
   )
 }
