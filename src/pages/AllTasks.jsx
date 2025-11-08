@@ -1,11 +1,28 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import add from '../assets/add.png'
 import {taskData} from '../db'
 import Mapped from '../components/Mapped'
 import ScrollToTop from '../components/ScrollToTop'
+import axios from 'axios'
 
 const AllTasks = () => {
+  const [tasks, setTasks] = useState([])
+
+  const getTasks = async() => {
+    try {
+      const res = await fetch ('https://blog-ou47.onrender.com/api/v1/tasks')
+      const data = await res.json()
+      setTasks(data)
+    } catch (error) {
+      console.log("error fetching tasks:", error)
+    }
+  }
+
+  useEffect(() => {
+    getTasks()
+  }, []);
+  
   return (
     <div>
         <main className='wrapper'>
@@ -19,7 +36,7 @@ const AllTasks = () => {
         </section>
 
         <section className='flex flex-col gap-[42px] md:gap-[72px]'>
-             {taskData.map((task) => {
+             {tasks.map((task) => {
             const {_id, description, tag, taskTitle} = task;
             return (
               <div key={_id}>
