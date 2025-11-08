@@ -13,7 +13,8 @@ const AllTasks = () => {
     try {
       const res = await fetch ('https://blog-ou47.onrender.com/api/v1/tasks')
       const data = await res.json()
-      setTasks(data)
+      setTasks(data.tasks)
+
     } catch (error) {
       console.log("error fetching tasks:", error)
     }
