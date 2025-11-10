@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom'
 import edit from '../assets/edit.png'
 import deleteIcon from '../assets/deleteIcon.png'
 
-const Mapped = ({ _id, taskTitle, description, tag }) => {
+const Mapped = ({ _id, title, description, tags }) => {
     return (
         <div className=' border-[0.5px] border-[#B8B6B6] rounded-[10px] my-2'>
             <div className='flex justify-between items-center border-b-[0.5px] border-[#B8B6B6]'>
-                <h1 className={`${tag === "Urgent" ? "text-[#F38383]" : "text-[#73C3A6]"} md:text-[24px] text-[20px] font-normal md:font-[300px] pt-6 px-2`}>{tag}</h1>
+                <h1 className={`${tags === "Urgent" ? "text-[#F38383]" : "text-[#73C3A6]"} md:text-[24px] text-[20px] font-normal md:font-[300px] pt-6 px-2`}>{tags}</h1>
                 <div className='flex items-center gap-4 md:gap-8 py-4 px-3 text-[14px] md:text-[24px] font-normal md:font-medium'>
                     <button className='bg-[#974FD0] cursor-pointer w-16 md:w-[126px] h-10 md:h-[50px] rounded-lg flex justify-center items-center'>
                         <Link to={`/task-id/${_id}`} className='flex items-center gap-2.5 px-2'>
@@ -23,7 +23,7 @@ const Mapped = ({ _id, taskTitle, description, tag }) => {
                     </button>
                 </div>
             </div>
-            <h1 className='font-[300px] md:font-normal text-[28px] md:text-[35px] text-[#292929] px-2 mt-2'>{taskTitle}</h1>
+            <h1 className='font-[300px] md:font-normal text-[28px] md:text-[35px] text-[#292929] px-2 mt-2'>{title}</h1>
             <p className='font-[300px] md:font-normal text-[16px] md:text-[25px] text-[#737171] px-2 mb-5 md:mb-10'>{description}</p>
         </div>
     )

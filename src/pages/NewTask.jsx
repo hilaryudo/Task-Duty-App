@@ -4,9 +4,9 @@ import Form from '../components/Form'
 
 const NewTask = () => {
   const [formData, setFormData] = useState({
-    taskTitle: '',
+    title: '',
     description: '',
-    tag: ''
+    tags: ''
   })
    
   const handleChange = (e) => {

@@ -42,7 +42,7 @@ const EditTask = () => {
       const res = await fetch(
         `https://blog-ou47.onrender.com/api/v1/tasks/${taskId}`,
         {
-          method: "PUT",
+          method: "PATCH",
           headers: {
             "content-type": "application/json",
           },

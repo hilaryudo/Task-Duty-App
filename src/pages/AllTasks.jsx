@@ -38,10 +38,10 @@ const AllTasks = () => {
 
         <section className='flex flex-col gap-[42px] md:gap-[72px]'>
              {tasks.map((task) => {
-            const {_id, description, tag, taskTitle} = task;
+            const {_id, description, tags, title} = task;
             return (
               <div key={_id}>
-              <Mapped taskTitle={taskTitle} _id={_id} description={description} tag={tag} />
+              <Mapped title={title} _id={_id} description={description} tags={tags} />
               </div>
             )
            })}
