@@ -7,12 +7,12 @@ const EditTask = () => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    taskTitle: "",
+    title: "",
     description: "",
-    tag: "",
+    tags: "",
   });
 
-
+  // ✅ Fetch Single Task
   const getTask = async () => {
     try {
       const res = await fetch(
@@ -20,11 +20,13 @@ const EditTask = () => {
       );
       const data = await res.json();
 
-      setFormData({
-        taskTitle: data.taskTitle || "",
-        description: data.description || "",
-        tag: data.tag || "",
-      });
+      if (data?.task) {
+        setFormData({
+          title: data.task.title || "",
+          description: data.task.description || "",
+          tags: data.task.tags || "",
+        });
+      }
     } catch (error) {
       console.log("Error fetching task:", error);
     }
@@ -34,13 +36,13 @@ const EditTask = () => {
     getTask();
   }, [taskId]);
 
-
+  // ✅ Update Task (PUT)
   const updateTask = async () => {
     try {
       const res = await fetch(
         `https://blog-ou47.onrender.com/api/v1/tasks/${taskId}`,
         {
-          method: "PATCH",
+          method: "PUT",
           headers: {
             "content-type": "application/json",
           },
@@ -51,14 +53,13 @@ const EditTask = () => {
       const data = await res.json();
       console.log("Updated:", data);
 
-      // Optionally redirect user after update
-      navigate("/tasks");
+      navigate("/all-tasks"); // ✅ redirect
     } catch (error) {
       console.log("Error updating task:", error);
     }
   };
 
-
+  // ✅ Form handlers
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
